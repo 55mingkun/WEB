@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 400px;
+            background-color: antiquewhite;
+            margin-bottom: 10px;
+            border: 2px salmon solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div>盒子</div>
+    <div>盒子</div>
+    <div>盒子</div>
+    <div>盒子</div>
+    <div>盒子</div>
+    <div>盒子</div>
+
+    <script>
+        //
+        //做一个防抖函数
+        const debounce = function (fun, counting, a = 0) {
+
+            var change = null
+            return function () {
+                if (change === null) {
+                    
+                    change = setTimeout(fun, counting)
+                    if(a === 0){
+                        clearTimeout(change)
+                        a = 1
+                    }
+                } else {
+                    clearTimeout(change)
+                    change = setTimeout(fun, counting)
+                }
+            }
+
+        }
+
+
+        //为视口绑定滚动事件
+
+
+
+        var getScrollTop = function () {
+            var scrollTop = document.documentElement.scrollTop
+            console.log(this)
+        }
+        window.onscroll = debounce(getScrollTop, 500)
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./H.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+
+        }
+
+        body,
+        html {
+            width: 100%;
+
+            color: #fff;
+
+        }
+
+        body {
+            background-color: black;
+            height: 8000px;
+        }
+
+        @keyframes planetScroll {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(30px);
+            }
+        }
+
+        @keyframes satelliteScroll {
+            0% {
+                transform: rotate3d(0, 0, 1, 0);
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 1, -45deg);
+            }
+        }
+
+        .back {
+            top: 0;
+            z-index: -2;
+            width: 100%;
+            height: 100%;
+            min-width: 1200px;
+            position: fixed;
+            perspective: 1200px;
+            transform-style: preserve-3d;
+        }
+
+        video {
+            width: 100%;
+            min-width: 1200px;
+            object-fit: cover;
+            position: fixed;
+            z-index: -1;
+        }
+
+        .bak-img {
+            position: fixed;
+            z-index: -1;
+        }
+
+        .planet1 {
+            width: 15%;
+            right: 160px;
+            bottom: 10px;
+            animation: planetScroll 5s infinite alternate;
+        }
+
+        .satellite {
+
+            width: 8%;
+            left: 800px;
+            top: 200px;
+            animation: satelliteScroll 5s infinite alternate;
+
+        }
+
+        .planet2 {
+            width: 20%;
+            left: 300px;
+            top: 200px;
+            animation: planetScroll 3.5s infinite alternate;
+        }
+
+        .freebie-1 {
+            display: block;
+            margin-top: 300px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="back">
+
+        <video src="https://s2.ssl.qhres2.com/static/dfeefadde568eab0.mp4" autoplay muted loop>
+            <source src="https://s2.ssl.qhres2.com/static/dfeefadde568eab0.mp4" type="mp4">
+        </video>
+        <img class="planet1 bak-img" src="https://se1.360simg.com/t0141db0679fb1bf286.png" alt="小星球">
+        <img class="satellite bak-img" src="https://se2.360simg.com/t01c656ec605cf238d0.png" alt="卫星">
+        <img class="planet2 bak-img" src="https://se2.360simg.com/t01cbd552d7384e1cb3.png" alt="大星球">
+
+    </div>
+
+    <div class="box-gradient">
+        <div>
+            <textarea name="1" id="22"></textarea>
+        </div>
+    </div>
+    <a href="#" class="btn2" id="btn" rows="5">
+        <span>咩事</span>
+    </a>
+
+    <div class="box">
+        <div class="box1">盒子1</div>
+        <div class="box2">盒子2</div>
+        <div class="box3">盒子3</div>
+        <div class="box4">????????</div>
+        <div class="box5">盒子5</div>
+    </div>
+    <div class="reflect">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <p class="freebie-1">
+        <span>span1</span>
+        <span>span2</span>
+    </p>
+
+
+
+    <div class="shopping-cart">
+        <ul class="list">
+            <li class="item">
+                <!--商品--> <!--名称和赠品-->
+                <div class="product">
+                    <!--主图-->
+                    <img src="./xiaoxiantu1/imgs/xfq.png" alt="" />
+                    <p class="name">一雷双茄</p>
+                    <!--赠品-->
+                    <div class="freebie-list">
+                        <p class="freebie">[赠品] 指挥官秘钥</p>
+                        <p class="freebie">[赠品] P90</p>
+                    </div>
+                </div>
+                <!--规格-->
+                <p class="specification">青色/大4小3</p>
+                <!--单价&数量-->
+                <div class="price-quantity">
+                    <p class="price">
+                        <span>￥</span><span>488</span>
+                    </p>
+                    <p class="quantity">×2</p>
+                </div>
+                <p class="total-price">
+                    <span>￥</span>
+                    <span>488</span>
+                </p>
+            </li>
+
+
+        </ul>
+        <div class="total">
+            <p>
+                合计:
+                <span>￥</span><span>1000</span>
+            </p>
+        </div>
+    </div>
+
+
+    <button class="login">登录</button>
+    <button class="remvo">删除</button>
+    <button class="add">增加</button>
+
+    <div class="flip">
+        <ul>
+            <li>
+                <img src="./xiaoxiantu1/imgs/carousel2.png" alt="">
+                <div>Tom</div>
+            </li>
+            <li>
+                <img src="./xiaoxiantu1/imgs/carousel3.png" alt="">
+                <div>Tom</div>
+            </li>
+            <li>
+                <img src="./xiaoxiantu1/imgs/carousel4.png" alt="">
+                <div>Jerry</div>
+            </li>
+            <li>
+                <img src="./xiaoxiantu1/imgs/carousel5.png" alt="">
+                <div>Spike</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="gradient-demo">
+        <div class="gradient-t-b">
+            <div></div>
+        </div>
+        <div class="gradient-colorful">
+            <div></div>
+        </div>
+
+
+    </div>
+
+    <!-- <script src="lodash.js"></script> -->
+    <script>
+        const date = [
+            {
+                id: '4001649',
+                name: '龙虎双茄之一雷双茄',
+                price: 999.9999,
+                picture: 'https://yanxuan-iyem.nosdn.127.net/4356c9fc150753775fe56b465314fleb.png',
+                imgs: './xiaoxiantu1/imgs/xfq.png',
+                count: 2,
+                spec: { size: '小号', color: '红色' },
+                gift: '捡空投，然后雷，爆开'
+
+            },
+            {
+                id: '4001650',
+                name: '龙虎双茄之垃圾龙茄',
+                price: 0.986,
+                picture: 'https://yanxuan-iyem.nosdn.127.net/4356c9fc150753775fe56b465314fleb.png',
+                imgs: './xiaoxiantu1/imgs/carousel3.png',
+                count: 1,
+                spec: { size: '给到拉', color: '红色' },
+                gift: 'DP-28，VSS'
+
+            },
+            {
+                id: '4001651',
+                name: '龙虎双茄之无敌虎茄',
+                price: 999999.154,
+                picture: 'https://yanxuan-iyem.nosdn.127.net/4356c9fc150753775fe56b465314fleb.png',
+                imgs: './xiaoxiantu1/imgs/xfq.png',
+                count: 8,
+                spec: { size: '夯爆了', color: '猛男粉' },
+                gift: 'AMR，指挥官秘钥，P90'
+
+            },
+            {
+                id: '4001652',
+                name: 'Tom监制龙泉青瓷茶叶罐,Tom监制龙泉青瓷茶叶罐Tom监制龙泉青瓷茶叶罐',
+                price: 139,
+                picture: 'https://yanxuan-iyem.nosdn.127.net/4356c9fc150753775fe56b465314fleb.png',
+                imgs: './xiaoxiantu1/imgs/carousel2.png',
+                count: 4,
+                spec: { size: '小号', color: '紫色', a: 'aa' },
+                gift: '50g茶叶，清洗球，Tom，Jreey'
+
+            }, {
+                id: '4001652',
+                name: 'Tom监制龙泉青瓷茶叶罐,Tom监制龙泉青瓷茶叶罐Tom监制龙泉青瓷茶叶罐',
+                price: 139,
+                picture: 'https://yanxuan-iyem.nosdn.127.net/4356c9fc150753775fe56b465314fleb.png',
+                imgs: './xiaoxiantu1/imgs/carousel2.png',
+                count: 4,
+                spec: { size: '小号', color: '紫色' },
+                gift: '50g茶叶，清洗球，Tom，Jreey'
+
+            }
+        ]
+        document.querySelector('.freebie-1').innerHTML = date[0].gift
+            .split('，')
+            .map(item => `<span>[赠品] ${item} </span><br/>`)
+            .join(' ')
+
+
+
+
+
+        const shoppingCartList = document.querySelector('.shopping-cart').querySelector('.list')
+        const total = document.querySelector('.shopping-cart').querySelector('.total')
+
+
+
+        let html = date.map((item) => {
+
+            let { name, imgs, count, spec, gift } = item
+            let price = item.price.toFixed(2)
+            let giftList = gift
+                .split('，')
+                .map(item => `<p class="freebie">[赠品] ${item}</p>`)
+                .join('')
+            //['50g茶叶', '清洗球', 'Tom', 'Jreey']
+            const specList = Object.values(spec).join('/')
+
+            return `
+                <li class="item">
+                    <div class="product" >
+                        <img src="${imgs}" alt="" />
+                        <p class="name">${name}</p>
+                        <div class="freebie-list">
+                            ${giftList}
+                        </div>
+                    </div>
+                    <p class="specification">${specList}</p>
+                    <div class="price-quantity">
+                        <p class="price">
+                            <span>￥</span><span>${price}</span>
+                        </p>
+                        <p class="quantity">×${count}</p>
+                    </div>
+                    <p class="total-price">
+                        <span>￥</span>
+                        <span>${price * count}</span>
+                    </p>
+                </li>
+            `
+
+        }).join('')
+
+        shoppingCartList.innerHTML = html
+        let priceTotal = date.reduce((newTotal, oddTotal) => newTotal + oddTotal.price * oddTotal.count, 0).toFixed(2)
+        total.innerHTML = `
+            <p>
+                合计:
+                <span>￥</span><span>${priceTotal}</span>
+            </p>
+        `
+
+        function Star(uname, age) {
+            this.name = uname
+            this.age = age
+
+        }
+        Star.prototype.sing = function () {
+            console.log('唱歌')
+        }
+
+        Array.prototype.max = function () {
+            let max = 0
+            for (let i = 0; i < this.length; i++) {
+                this[i] = Number(this[i])
+                if (max >= this[i] && max == 0) {
+                    max = this[i]
+                } else {
+                    max = max >= this[i] ? max : this[i]
+                }
+            }
+            return max
+        }
+
+
+        Array.prototype.mun = function () {
+            return this.reduce((prev, item) => prev + item, 0)
+        }
+        let arr = [-1, -2]
+        let str = '1'
+        let max = arr.max()
+        let val = document.querySelector('textarea').value
+        const btn = document.querySelector('#btn')
+        let ldh = new Star('刘德华', 18)
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            val = document.querySelector('textarea').value.split(',')
+            console.log(val)
+
+            document.querySelector('textarea').value = `在${val.join('和')}里面最大的数字是${val.max()}`
+
+        })
+
+
+        /*
+            < div class="modal" >
+                <div class="hader">温馨提示<a href="#"><i>X</i></a></div>
+                <div class="messagge">您还没有注册账号</div>
+            </div >
+        */
+        function Modal(hader = '', messagge = '') {
+            const a = document.querySelector('.modal')
+
+
+
+            const modal = document.createElement('div')
+            modal.className = 'modal'
+            modal.innerHTML = `
+                <div class="hader">${hader}<a href="#"><i>X</i></a></div>
+                <div class="messagge">${messagge}</div>
+            `
+
+            !a && document.body.appendChild(modal)
+            modal.querySelector('a').addEventListener('click', (e) => {
+                e.preventDefault()
+                this.close()
+            })
+        }
+
+        Modal.prototype.close = function (e) {
+            document.querySelector('.modal').remove()
+        }
+
+        document.querySelector('.login').addEventListener('click', () => {
+            let login = new Modal('温馨提示', '你还没有注册')
+
+        })
+
+
+        document.querySelector('.remvo').addEventListener('click', () => {
+            let messagge = new Modal('小提示', '你还权限删除')
+        })
+
+        document.querySelector('.add').addEventListener('click', () => {
+            let messagge = new Modal('热提示', '你还权限增加')
+        })
+
+
+
+
+
+        const obj = {
+            uname: 'Jerry',
+            age: 3,
+            hobby: ['抽烟', '喝酒', '烫头',['AA','27']],
+            family:{
+                bady:'minJerry'
+            }
+        }
+        const o = {}
+
+        function cloneDeep(oddObj,newObj){
+            for(const k in newObj){
+                if(newObj[k] instanceof Array){
+                    oddObj[k] = []
+                    cloneDeep(oddObj[k],newObj[k])
+                }else if(newObj[k] instanceof Object){
+                    oddObj[k] = {}
+                    cloneDeep(oddObj[k],newObj[k])
+                }
+                else{
+                    oddObj[k] = newObj[k]
+                }
+            }
+            
+        }
+        cloneDeep(o, obj)
+        o.family.bady = '1111'
+        console.log(o, obj)
+        
+      
+        
+
+         
+
+         
+    </script>
+</body>
+
+</html>

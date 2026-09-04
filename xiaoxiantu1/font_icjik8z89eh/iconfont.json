@@ -1,0 +1,72 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1360",
+      "name": "新浪微博",
+      "font_class": "xinlangweibo",
+      "unicode": "f01af",
+      "unicode_decimal": 983471
+    },
+    {
+      "icon_id": "77697",
+      "name": "点赞",
+      "font_class": "dianzan",
+      "unicode": "f010d",
+      "unicode_decimal": 983309
+    },
+    {
+      "icon_id": "792490",
+      "name": "box-箱子",
+      "font_class": "boxxiangzi",
+      "unicode": "e730",
+      "unicode_decimal": 59184
+    },
+    {
+      "icon_id": "1366146",
+      "name": "微信公众号",
+      "font_class": "WeChat",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "5699518",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "6857092",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "9086077",
+      "name": "快递车",
+      "font_class": "kuaidiche",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "12827051",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e6f0",
+      "unicode_decimal": 59120
+    },
+    {
+      "icon_id": "29227631",
+      "name": "问题反馈",
+      "font_class": "wentifankui",
+      "unicode": "e506",
+      "unicode_decimal": 58630
+    }
+  ]
+}

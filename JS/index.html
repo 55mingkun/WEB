@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        H1 {
+            color: red;
+            position: relative;
+            width: 70%;
+            height: 50PX;
+            margin: 20PX auto 10PX;
+            text-align: center;
+            background-color: rgb(188, 149, 224);
+            color: aliceblue;
+        }
+
+        .imgs {
+            width: 70%;
+            margin: 20PX auto 10PX;
+        }
+
+        .red {
+            background-color: rgb(241, 206, 206);
+        }
+
+        .blue {
+            background-color: rgb(190, 212, 241);
+        }
+
+        .green {
+            background-color: rgb(214, 247, 201);
+        }
+
+        .imgs>img {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            left: 100px;
+            margin: 0PX auto;
+            /* position: relative; */
+        }
+    </style>
+</head>
+
+<body>
+    <H1>点击按钮换下Tom背景颜色</H1>
+    <div class="imgs red">
+        <img src="/imgs/0ec04dd6-4ffa-4763-8d4c-f1fde756c005.png" alt="Tom">
+        <img src="/imgs/f749ff03-8b51-4d43-be10-a24a416f9a9d.png" alt="Tom">
+        <div class="buttons">
+            <button onclick="changeBackgroundClolor(0)">红色</button>
+            <button onclick="changeBackgroundClolor(1)">蓝色</button>
+            <button onclick="changeBackgroundClolor(2)">绿色</button>
+            <button onclick="changeBackgroundClolor('changeClolor')">变色</button>
+        </div>
+    </div>
+
+    <script>
+        //获得Tom的容器
+        var tomBackground = document.getElementsByClassName('imgs')[0]
+        //创建一个颜色的数值
+        var colorArr = ['red', 'blue', 'green']
+        //改变背景颜色的函数
+        function changeBackgroundClolor(color) {
+            //做一个自动转化的下标
+            this.a ? a++ : this.a = 1
+            //判断是轮换按钮还是普通按钮
+            if (color === 'changeClolor') {
+
+                if (this.a >= colorArr.length) {
+                    this.a = 0
+                }
+                //修改Tom容器的类名
+                //tomBackground.className = 'imgs' + ' ' + colorArr[this.a]
+                tomBackground.classList.add()
+            } else {
+                //修改类名
+                //tomBackground.className = 'imgs' + ' ' + color
+                this.a = color
+                tomBackground.className = 'imgs' + ' ' + colorArr[this.a]
+                //console.log(tomBackground.className);
+            }
+            console.log(this.a)
+            
+        }
+        tomBackground.classList.add('hello')
+        console.log(tomBackground.className);
+        
+    </script>
+</body>
+
+</html>

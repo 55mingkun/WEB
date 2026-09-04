@@ -1,0 +1,397 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e5e5e5;
+    color: #333;
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+img {
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav {
+    width: 100%;
+    background-color: #333333;
+}
+
+nav .nav-center {
+    width: 1240px;
+    display: flex;
+    justify-content: end;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    height: 53px;
+
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    text-align: center;
+    display: inline-block;
+    height: 14px;
+    color: #bcbcbc;
+    font-size: 14px;
+    border-right: 2px solid #6f6f70;
+    vertical-align: top;
+    line-height: 14px;
+    padding: 0 15px;
+    box-sizing: content-box;
+}
+
+nav .yi {
+    /* padding-right: 0; */
+    border: 0;
+}
+
+nav a:hover {
+    color: rgb(39, 186, 155);
+    /* color: #27BB9A; */
+}
+
+/*header样式高度132px  */
+header {
+    width: 100%;
+    height: 132px;
+    background-color: #ffffff;
+}
+
+.header-center {
+    width: 1240px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-center .logo {
+    width: 200px;
+    height: 132px;
+    background-image: url(../imgs/logo.0940ebb5.png);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: -8px;
+    text-indent: -4em;
+    overflow: hidden;
+}
+
+.header-center .logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/*header导航列表*/
+.header-nav {
+    display: flex;
+    /* background-color: bisque; */
+    width: 800px;
+    justify-content: space-evenly;
+}
+
+.header-nav li a:hover {
+    color: #27BB9A;
+    border-bottom: 1px solid #27BB9A;
+}
+
+.header-nav li a:hover .show-list {
+    display: block;
+}
+
+/*显示列表基本样式*/
+.show-list {
+    width: 1240px;
+    height: 0px;
+    background-color: #fff;
+    /* display: none; */
+    transition: all 0.5s;
+    position: absolute;
+    top: 100px;
+    box-shadow: 1px 1px 3px #666;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 2;
+}
+
+.show-list a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.show-list h5 {
+    margin-top: 10px;
+}
+
+.show-list a:hover {
+    color: #27BB9A;
+}
+
+.show-list img {
+    width: 80px;
+    height: 80px;
+}
+
+/*头部搜索框样式*/
+.header-center .search {
+    border-bottom: 1px solid #cfcdcd;
+    width: 170px;
+    height: 32px;
+    display: flex;
+}
+
+.header-center .search a {
+    display: block;
+    margin: 0 6px;
+    line-height: 32px;
+}
+
+.header-center .search i {
+    font-size: 18px;
+}
+
+.header-center .search i:hover {
+    color: #27BB9A;
+}
+
+.header-center .search input {
+    border: 0;
+    outline: none;
+    width: 140px;
+}
+
+
+/*头部购物车样式*/
+.header-center .car {
+    position: relative;
+    width: 50px;
+    height: 32px;
+    /* background-color: aqua; */
+    text-align: center;
+    line-height: 32px;
+
+}
+
+.header-center .car i {
+    font-size: 25px;
+}
+
+.header-center .car span {
+    font-size: 10px;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 14px;
+    background-color: #FF335F;
+    line-height: 14px;
+    border-radius: 14px;
+    color: #fff;
+}
+
+/*底部样式*/
+footer {
+    height: 638px;
+    width: 100%;
+    background-color: #333333;
+    margin-top: 50px;
+}
+
+footer .footer-up {
+
+    background-color: #fff;
+}
+
+.footer-up ul {
+    margin: 0 auto;
+    width: 1240px;
+    height: 290px;
+    display: flex;
+}
+
+.footer-up li {
+    width: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-up li .item {
+    width: 100%;
+    height: 190px;
+    border-right: solid 1px rgb(236, 236, 236);
+}
+
+.footer-up li:last-child .item {
+    border: 0;
+}
+
+.footer-up .item h5 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #959693;
+    text-align: center;
+    height: 70px;
+    /* line-height: 70px; */
+
+}
+
+.footer-up .item>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92px;
+}
+
+.footer-up .item a {
+    display: flex;
+    width: 92px;
+    height: 92px;
+    flex-direction: column;
+    text-align: center;
+    border: #e4e4e4 1px solid;
+    margin: 0 8px;
+}
+
+.footer-up .item i {
+    font-size: 36px;
+    color: #aaaaaa;
+    line-height: 60px;
+}
+
+.footer-up .item div>:hover i {
+    color: #27BB9A;
+}
+
+.footer-up .item span {
+    color: #838381;
+    font-size: 14px;
+}
+
+.footer-up .item-app .ewm-box {
+    margin-right: 8px;
+    width: 92px;
+    height: 92px;
+    border: #e4e4e4 1px solid;
+    margin: 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-up .item-app p {
+    color: #737473;
+    font-size: 14px;
+    text-align: center;
+    line-height: 22px;
+}
+
+.footer-up .item-app a {
+    color: #fff;
+    background-color: #27BB9A;
+    width: 106px;
+    height: 34px;
+    border: 0;
+    line-height: 34px;
+}
+
+.footer-up .item-num span {
+    color: #666;
+    font-size: 22px;
+    display: block;
+    text-align: center;
+}
+
+.footer-up .item-num span:last-child {
+    font-size: 16px;
+}
+
+.footer-down {
+    width: 1240px;
+    margin: 0 auto;
+
+}
+
+.down-up>ul {
+    padding:0 100px;
+    height: 178px;
+    border-bottom: solid 1px #444;
+    display: flex;
+    justify-content: space-between;
+}
+
+.down-up li i {
+    font-size: 54px;
+    margin-right: 5px;
+
+}
+
+.down-up li a {
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+     
+}
+
+.down-up li {
+    
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    line-height: 44px;
+}
+
+.down-down ul{
+    margin-top: 36px;
+    display: flex;
+    justify-content: center;
+}
+.down-down ul li{
+    height: 20px;
+    padding:0 10px;
+    border-right: 1px solid #999;
+}
+.down-down ul li:last-child{
+    border-right:0;
+}
+.down-down a{
+    color: #999999;
+    font-size: 15px;
+}
+.down-down p{
+    margin-top: 15px;
+    text-align: center;
+    color:#999;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.down-down  i{
+    margin: 0 2px;
+}

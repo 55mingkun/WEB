@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* background-color: rgb(230, 227, 227); */
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        main {
+            width: 1300px;
+            background-color: #fff;
+            margin: 150px auto 0;
+        }
+
+        /*
+           UL 宽度 256上下内间距8PX  背景颜色#F7F7F7
+            选中内颜色FF5000 /是21*32
+        */
+        .nav {
+            width: 256px;
+            
+        }
+
+        /*f7是UL的背景颜色*/
+        .nav ul {
+            width: 100%;
+            background-color: #F7F7F7;
+            padding: 8px 0;
+            border-radius: 15px 0 0 15px;
+        }
+
+        .nav li {
+            height: 32px;
+            font-size: 14px;
+            color: #140707;
+            line-height: 32px;
+            margin-left: 8px;
+            padding-left: 10px;
+            transition: all .5s;
+        }
+        .nav li:hover{
+            background-color: #fff;
+        }
+        .nav li:first-child{
+            color: #f55050;
+        }
+        .nav a{
+            color: #140707;
+            font-size: 14px;
+        }
+        .nav a:hover{
+            color: #E95F18;
+        }
+        .nav h4 {
+            display: inline;
+            color: #E95F18;
+        }
+        .nav span{
+            display:inline-block;
+            width: 21px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="nav">
+            <ul>
+                <li> </a><span>I</span> <a href="#">
+                        <h4>限时秒杀5折起</h4>
+                    </a>
+                    <span>/</span>
+                    <a href="#">
+                        <h4>去领大额券</h4>
+                    </a></li>
+                <li><span>I</span>
+                    <a href="#">电脑</a><span>/</span>
+                    <a href="#">配件</a><span>/</span>
+                    <a href="#">办公</a><span>/</span>
+                    <a href="#">文具</a>
+                </li>
+                <li><span>I</span>
+                    <a href="#">工业品</a><span>/</span>
+                    <a href="#">商业</a><span>/</span>
+                    <a href="#">农业</a><span>/</span>
+                    <a href="#">定制</a>
+                </li>
+                <li><span>I</span>
+                    <a href="#">电脑</a><span>/</span>
+                    <a href="#">配件</a><span>/</span>
+                    <a href="#">办公</a><span>/</span>
+                    <a href="#">文具</a>
+                </li>
+                <li><span>I</span>
+                    <a href="#">电脑</a><span>/</span>
+                    <a href="#">配件</a><span>/</span>
+                    <a href="#">办公</a><span>/</span>
+                    <a href="#">文具</a>
+                </li>
+                
+            </ul>
+        </div>
+    </main>
+
+</body>
+
+</html>

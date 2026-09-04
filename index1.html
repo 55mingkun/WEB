@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            font-style: normal;
+        }
+
+        .c {
+            margin: 80px auto;
+            width: 1280px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .out-mian-top {
+            width: 600px;
+
+        }
+
+        .drop-box {
+            background-color: #eee;
+            height: 400px;
+            color: black;
+            text-align: center;
+            line-height: 400px;
+            font-size: 26px;
+            border: 3px slategrey dashed;
+            border-radius: 16px;
+        }
+
+        .but-box {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: end;
+            position: relative;
+        }
+
+        .but-box a {
+            display: block;
+            width: 120px;
+            height: 40px;
+            background-color: rgb(78, 66, 250);
+            color: #fff;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 40px;
+            border: solid 2px rgb(64, 238, 87);
+        }
+
+        .but-box a:hover {
+            background-color: rgb(39, 25, 238);
+            color: #fff;
+            border: solid 2px rgb(16, 240, 46);
+        }
+
+        .but-box input {
+
+            border-radius: 20px;
+            cursor: pointer;
+            right: 145px;
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            opacity: 0;
+            background-color: antiquewhite;
+            border: salmon 2px solid;
+        }
+
+        .img-box {
+            width: 600px;
+            min-height: 100%;
+            background-color: antiquewhite;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .img-box>ul {
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            column-gap: 10px;
+        }
+
+        .img-box li {
+            /* width: 100%; */
+            height: 150px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            position: relative;
+        }
+
+        .img-box li img {
+            width: 100%;
+            height: 115px;
+            object-fit: cover;
+        }
+
+        .img-box li a {
+            position: absolute;
+            top: 0px;
+            right: 5px;
+        }
+    </style>
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+    <div class="c">
+        <div class="out-mian-top">
+            <div class="drop-box">
+                或者拖拽此处上传(上传文件不得大于400K)
+            </div>
+            <div class="but-box">
+                <input type="file">
+                <a href="#">
+                    选择文件
+
+                </a>
+                <a href="#" id="file-send">
+                    点击上传
+                </a>
+            </div>
+        </div>
+
+        <div class="img-box">
+            <ul>
+                <li>
+                    <img src="./imgs/Tom12.png" alt="">
+                    <a href="#"><i>X</i></a>
+                </li>
+                <li>
+                    <img src="./imgs/Tom12.png" alt="">
+                    <a href="#"><i>X</i></a>
+                </li>
+                <li>
+                    <img src="./imgs/Tom12.png" alt="">
+                    <a href="#"><i>X</i></a>
+                </li>
+                <li>
+                    <img src="./imgs/Tom12.png" alt="">
+                    <a href="#"><i>X</i></a>
+                </li>
+                <li>
+                    <img src="./imgs/Tom12.png" alt="">
+                    <a href="##"><i>X</i></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+
+        document.querySelectorAll('a').forEach((i) => {
+            i.addEventListener('click', (e) => {
+                if (e.target.href === '#') {
+                    e.preventDefault()
+                }
+                //说明父节点是A标签
+                if (e.target.parentNode.tagName === 'A' && e.target.parentNode.href === '#') {
+                    e.preventDefault()
+                }
+            })
+
+        })
+
+        //被拖拽目标
+        const dropBox = document.querySelector('.drop-box')
+        //上传按钮
+        const fileSend = document.getElementById('file-send')
+        //初始化要上传的文件
+        let fileImgs = []
+        //获取展示缩略图容器
+        const imgList = document.querySelector('.img-box>ul')
+        //文件不大于400k,单位为字节
+        const fileSize = 1024 * 400
+
+        dropBox.addEventListener('dragover', (e) => {
+            e.preventDefault()
+        })
+        dropBox.addEventListener('drop', (e) => {
+            e.preventDefault()
+
+            //有可能同时拖拽进来多张，...循环
+            let files = e.dataTransfer.files
+
+            for (let i = 0; i < files.length; i++) {
+                //转为base64格式
+                let reader = new FileReader
+                reader.readAsDataURL(files[i])
+                //异步转成功后函数执行
+                reader.onload = () => {
+                    //判断大小是否符合400K
+                    if (reader.result.length > fileSize) {
+                        return alert('文件太大了')
+                    }
+                    //判断要上传的文件是否已经存在，如果存在则中断
+                    let index = fileImgs.indexOf(reader.result)  //如果为-1则不存在
+                    if (index !== -1) return
+                    //转化好的数据追加到要上传的容器
+                    fileImgs.push(reader.result)
+                    //渲染缩略图  imgList 
+                    imgList.innerHTML = ''
+                    for (const key in fileImgs) {
+
+                        imgList.innerHTML += `
+                            <li>
+                                <img src="${fileImgs[key]}" alt="">
+                                <a href="#"><i>X</i></a>
+                            </li>
+                        `
+                    }
+                }
+            }
+        })
+
+        imgList.addEventListener('click', (e) => {
+            if (e.target.tagName != 'I') return
+            //获取点击的索引
+            let index = fileImgs.indexOf(e.target.parentNode.previousElementSibling.src)
+            //删除要上传的文件
+            fileImgs.splice(index, 1)
+            e.target.parentNode.parentNode.remove()
+        })
+ 
+    </script>
+</body>
+
+</html>
