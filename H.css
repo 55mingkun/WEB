@@ -1,3 +1,17 @@
+@keyframes move {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 @keyframes line-gradient {
     0% {
         /* transform: rotateZ(0); */
@@ -57,6 +71,46 @@
     100% {
         transform: translateX(-200%);
     }
+}
+
+nav {
+    background-color: #000000;
+    width: 100%;
+    box-shadow: 0px 1px 15px #fff;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+nav ul {
+    justify-content: center;
+    width: 800px;
+    display: flex;
+    height: 100%;
+    gap: 18px;
+}
+
+nav li {
+    cursor: pointer;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav li:hover svg{
+    animation: move .3s;
+}
+
+nav li svg{
+    display: block;
+    width: 22px;
+}
+nav li:first-child svg{
+    width: 30px;
 }
 
 .btn2 {
@@ -593,7 +647,7 @@
 }
 
 .gradient-demo {
-    margin:50px auto 0;
+    margin: 50px auto 0;
     width: 80%;
     height: 300px;
     display: flex;
@@ -604,7 +658,7 @@
 
 
 .gradient-t-b {
-    
+
     padding: 2px 0;
     width: 400px;
     height: 300px;
@@ -665,6 +719,7 @@
     75% {
         box-shadow: 0px 0px 10px #606eff;
     }
+
     100% {
         box-shadow: 0px 0px 12px #ce0cf5;
     }
@@ -675,11 +730,11 @@
     width: 400px;
     height: 300px;
     overflow: hidden;
-    
+
     padding: 3px;
     display: block;
     border-radius: 8px;
-    animation: gradient-shadow 6s infinite linear ;
+    animation: gradient-shadow 6s infinite linear;
 }
 
 .gradient-colorful>div {
