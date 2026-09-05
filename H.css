@@ -1,6 +1,7 @@
 @keyframes move {
     0% {
         transform: translateY(0px);
+        stroke-dasharray: 0 600;
     }
 
     50% {
@@ -9,6 +10,7 @@
 
     100% {
         transform: translateY(0px);
+        stroke-dasharray: 600 0;
     }
 }
 
@@ -102,15 +104,31 @@ nav li {
 }
 
 nav li:hover svg{
-    animation: move .3s;
+    animation: move .5s;
 }
 
 nav li svg{
+    fill: none;
+    /*描边颜色*/
+    stroke: #f6f6f7;
+    /*描边宽度*/
+    stroke-width: 30px;
+    /*虚线模式*/
+    stroke-dasharray: 100 0;
     display: block;
     width: 22px;
 }
 nav li:first-child svg{
     width: 30px;
+}
+
+.svg-box svg{
+    margin: 80px 100px;
+    fill: none;
+    stroke: #ff4221;
+    stroke-width: 10px;
+    stroke-dasharray:2616;
+    stroke-dashoffset: 2616;
 }
 
 .btn2 {
