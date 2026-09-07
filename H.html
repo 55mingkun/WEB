@@ -100,9 +100,10 @@
 
         .freebie-1 {
             display: block;
-            margin-top: 300px;
-
+            margin-top: 300px
         }
+
+         
     </style>
 </head>
 
@@ -136,6 +137,17 @@
             </li>
         </ul>
     </nav>
+
+    <div class="font-box">
+        <div class="behind">Hello myName is Tom</div>
+        <div class="front">
+            <div>
+                 Hello myName is Tom
+            </div>
+           
+        </div>
+
+    </div>
     <div class="svg-box">
         <!-- 线条长度2616.08251953125 -->
         <svg t="1788618210860" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -259,8 +271,13 @@
         <div class="gradient-colorful">
             <div></div>
         </div>
+    </div>
 
-
+    <!--异形盒子-->
+    <div class="clip-box w">
+        <div class="item">
+            <img src="./xiaoxiantu1/imgs/carousel3.png" alt="">
+        </div>
     </div>
 
     <!-- <script src="lodash.js"></script> -->
@@ -342,7 +359,6 @@
 
         setInterval(() => {
             if (heart.style.strokeDashoffset <= 0) {
-
                 heart.style.strokeDashoffset = 0
                 if (time) {
                     return
@@ -350,15 +366,11 @@
                     time = setTimeout(() => {
                         heart.style.strokeDashoffset = TotalLength
                         clearInterval(time)
-                        
-                        
                         time = null
-                        
-                        
-                    }, 1000)
-                    
-                }
 
+                    }, 1000)
+
+                }
             } else {
                 heart.style.strokeDashoffset -= 20
             }

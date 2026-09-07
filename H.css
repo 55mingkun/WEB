@@ -75,6 +75,23 @@
     }
 }
 
+@keyframes clip-move {
+    0% {
+        -webkit-clip-path: circle(8% at 14% 50%);
+        clip-path: circle(90deg at 10% 50%);
+    }
+
+    50% {
+        -webkit-clip-path: circle(8% at 65% 50%);
+        clip-path: circle(90deg at 20% 50%);
+    }
+
+    100% {
+        -webkit-clip-path: circle(8% at 14% 50%);
+        clip-path: circle(90deg at 10% 50%);
+    }
+}
+
 nav {
     background-color: #000000;
     width: 100%;
@@ -103,11 +120,11 @@ nav li {
     align-items: center;
 }
 
-nav li:hover svg{
+nav li:hover svg {
     animation: move .5s;
 }
 
-nav li svg{
+nav li svg {
     fill: none;
     /*描边颜色*/
     stroke: #f6f6f7;
@@ -118,16 +135,76 @@ nav li svg{
     display: block;
     width: 22px;
 }
-nav li:first-child svg{
+
+nav li:first-child svg {
     width: 30px;
 }
 
-.svg-box svg{
+.font-box {
+    margin: 70px auto;
+    width: 1550px;
+
+    position: relative;
+
+}
+
+.font-box .behind,
+.font-box .front {
+    filter: blur(5px);
+    font-size: 108px;
+    text-align: justify;
+    text-align-last: justify;
+    padding: 0 200px;
+    line-height: 160px;
+    font-weight: 700;
+    color: #252525;
+}
+
+.font-box .front {
+    width: 1550px;
+    height: 160px;
+    animation: 7.5s clip-move infinite linear;
+    position: absolute;
+    top: 0;
+filter: blur(.5px);
+}
+
+.font-box .front div {
+    background: linear-gradient(to right, #f55b03, #ff0000, #51ff00, #ffff00, #ce0cf5, #606ef1, #ff4221, #f70404);
+    /*设置渐变的方向从左到右 颜色从ffe000到ffff00*/
+    -webkit-background-clip: text;
+    /*将设置的背景颜色限制在文字中*/
+    -webkit-text-fill-color: transparent;
+    /*给文字设置成透明*/
+    position: absolute;
+    top: 0;
+    left: 200px;
+    z-index: 1;
+
+
+}
+
+.font-box .front::before {
+    display: block;
+    content: "";
+    filter: blur(3px);
+    width: 1550px;
+    height: 155px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-color: #242323;
+
+
+}
+
+.svg-box svg {
     margin: 80px 100px;
     fill: none;
     stroke: #ff4221;
     stroke-width: 10px;
-    stroke-dasharray:2616;
+    stroke-dasharray: 2616;
     stroke-dashoffset: 2616;
 }
 
@@ -421,9 +498,10 @@ nav li:first-child svg{
 
 
 .reflect:hover .item:not(:hover) {
-    transform: rotateY(30deg) scale(.95);
+    transform: rotateY(30deg) scale(.95) translateX(130px);
     z-index: -1;
     margin: 0 0px;
+    filter: blur(3px);
 }
 
 .reflect>.item:hover {
@@ -432,7 +510,7 @@ nav li:first-child svg{
 }
 
 .reflect>.item:hover~.item {
-    transform: rotateY(-30deg) scale(.95);
+    transform: rotateY(-30deg) scale(.95) translateX(-130px);
 }
 
 
@@ -775,5 +853,22 @@ nav li:first-child svg{
     background: conic-gradient(#606eff, #b2fd6b, #ff4221, #ce0cf5);
     animation: conic-gradient infinite linear 6s;
     backdrop-filter: blus(10px);
+
+}
+
+
+/*异形盒子clip*/
+
+.clip-box .item {
+    -webkit-clip-path: polygon(0% 15%, 25% 24%, 15% 0%, 85% 0%, 76% 25%, 100% 15%, 100% 85%, 65% 61%, 85% 100%, 15% 100%, 37% 61%, 0% 85%);
+    clip-path: polygon(0% 15%, 25% 24%, 15% 0%, 85% 0%, 76% 25%, 100% 15%, 100% 85%, 65% 61%, 85% 100%, 15% 100%, 37% 61%, 0% 85%);
+    width: 70%;
+    margin: 30px auto;
+}
+
+.clip-box .item img {
+    width: 100%;
+    height: 100%;
+    display: block;
 
 }
