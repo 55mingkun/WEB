@@ -1,11 +1,484 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./font_oahqs8z1psm/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            list-style: none;
+            text-decoration: none;
+
+        }
+
+        :root {
+            --color: rgb(255, 199, 199);
+            --navWidth: 200px;
+            --rotate: calc(360deg / 8);
+            --rotatee: calc(-360deg / 8);
+            --translate: 100px;
+        }
+
+        body {
+            scroll-behavior: smooth;
+
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            filter: drop-shadow(3px 3px 3px gray);
+            /* box-shadow: 3px 3px 2px #666; */
+            position: fixed;
+            top: 0;
+            background: var(--color);
+            z-index: 1;
+
+        }
+
+
+
+        .scrollbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #f00, #0f0, #00f, #ff0, #eb0df3);
+            animation: scrollbar;
+            animation-timeline: scroll();
+        }
+
+        .nav-box {
+            position: relative;
+            width: calc(var(--navWidth) * 4);
+            height: 40px;
+            border: salmon solid 1px;
+            box-sizing: content-box;
+            font-size: 0;
+            border-radius: 3px;
+            display: flex;
+
+        }
+
+        .nav-box a {
+            display: inline-block;
+            color: #fff;
+            width: var(--navWidth);
+
+            font-size: 20px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .nav-box a:hover~.selected {
+            transform: translateX(calc(var(--navWidth) * 0));
+            background-color: #60ee1e;
+            opacity: 1;
+        }
+
+        .nav-box a:nth-child(2):hover~.selected {
+            transform: translateX(calc(var(--navWidth) * 1));
+            background-color: #ea15ee;
+            opacity: 1;
+        }
+
+        .nav-box a:nth-child(3):hover~.selected {
+            transform: translateX(calc(var(--navWidth) * 2));
+            background-color: #f18647;
+            opacity: 1;
+        }
+
+        .nav-box a:nth-child(4):hover~.selected {
+            transform: translateX(calc(var(--navWidth) * 3));
+            background-color: #f35050;
+            opacity: 1;
+        }
+
+        .selected {
+            top: 0;
+            left: 0;
+            position: absolute;
+            transition: all .5s;
+            width: var(--navWidth);
+            height: 40px;
+            background-color: rgb(207, 247, 207);
+            z-index: -1;
+            opacity: .2;
+        }
+
+        .content {
+            width: 80%;
+            margin: 100px auto 300px;
+            background: #fffefe;
+        }
+
+        .content ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            transform-style: preserve-3d;
+            perspective: 2000px;
+        }
+
+        .content ul li {
+            transition: all .5s;
+            perspective: 2000px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .content ul li:hover img:first-child {
+            transform: rotateY(0deg);
+        }
+
+        .content ul li:hover img:last-child {
+            transform: rotateY(180deg);
+        }
+
+        .content img {
+            display: block;
+            width: 270px;
+            height: 400px;
+            transition: all .5s;
+            backface-visibility: hidden;
+
+        }
+
+        .content li img:last-child {
+            animation: rotateBack 1s linear forwards calc(var(--i) * 1s);
+
+        }
+
+        .content li img:first-child {
+            transform: rotateY(-180deg);
+            position: absolute;
+            z-index: 1;
+            animation: rotateFront 1s linear forwards calc(var(--i) * 1s);
+
+        }
+
+
+
+
+        .rotate-nav {
+            position: relative;
+            margin: 0 auto 200px;
+
+
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            line-height: 60px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        .rotate-nav .i-box {
+            border-radius: 50%;
+            background-color: #fffefe;
+            transition: all 1s;
+            height: 80px;
+            width: 80px;
+            transform: rotateZ(45deg);
+            text-align: center;
+            line-height: 80px;
+            border: solid 4px #000;
+            z-index: 1;
+        }
+
+
+
+        .rotate-nav i {
+            color: #000;
+            font-size: 40px;
+            font-weight: 900;
+        }
+
+        .rotate-nav span {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: block;
+            color: var(--col);
+            font-size: 38px;
+            position: absolute;
+
+            transition: all 1s calc(var(--i) * 0.1s);
+            background-color: #fff;
+            border: 3px solid var(--col);
+        }
+
+        .rotate-nav:hover div {
+            transform: rotateZ(720deg);
+        }
+
+        .rotate-nav:hover span {
+            transition: all 1s 0s;
+            transform: rotateZ(calc(var(--rotate) * var(--i))) translateX(var(--translate));
+
+        }
+
+        .rotate-nav span:hover {
+
+            transition: all 0s calc(var(--i) * 0s);
+            background-color: var(--col);
+            color: #fff;
+            box-shadow:
+                0px 0px 8px var(--col),
+                0px 0px 15px var(--col),
+                0px 0px 40px var(--col);
+        }
+
+        .rotate-nav p {
+            transition: all 0s calc(var(--i) * 0.01s);
+            display: block;
+            transform: rotateZ(calc(var(--rotatee) * var(--i)));
+        }
+
+
+
+
+
+
+
+
+        .img-box {
+            width: 80%;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            display: flex;
+        }
+
+        .img-box img {
+            width: 600px;
+            height: 400px;
+            margin-left: 150px;
+            margin-bottom: 800px;
+            opacity: .2;
+            animation: scale 2s linear;
+            animation-timeline: view();
+            transition: 2s all;
+            box-shadow: 2px 2px 2px #666;
+            border-radius: 5%;
+            display: block;
+        }
+
+        .img-box img:hover {
+            transform: translateX(200px);
+        }
+
+
+
+
+        @keyframes scale {
+            0% {
+                opacity: 0;
+                transform: scale(0.1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(-80px) scale(1.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(-80px) scale(1.5);
+            }
+        }
+
+        /*正面*/
+        @keyframes rotateFront {
+            0% {
+                transform: rotateY(-180deg);
+            }
+
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+
+        /*背面*/
+        @keyframes rotateBack {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(180deg);
+            }
+        }
+
+        @keyframes scrollbar {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes scroll-img {
+            0% {
+                width: 70vw;
+                opacity: .5;
+            }
+
+            100% {
+                width: 80vw;
+                opacity: 1;
+            }
+        }
+
+        .scroll-box {
+            
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            width: 80vw;
+            margin: 0 auto 100vh;
+
+        }
+        .scroll-box div{
+            top: 0;
+            position: sticky;
+            animation: scroll-img 2s;
+            animation-timeline: view();
+            width: 70vw;
+        }
+
+        .scroll-box img {
+            
+            
+            margin-top: 100px;
+            width: 100%;
+            display: block;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <!--
+        1滑动导航栏 ✅
+        2旋转导航栏 
+        vm vh 图片滚案例  figuer
+    -->
+
+
+
+
+    <div class="navbar">
+        <div class="scrollbar"></div>
+        <div class="nav-box">
+            <a href="#">导航项</a>
+            <a href="#">导航项</a>
+            <a href="#">导航项</a>
+            <a href="#">导航项</a>
+            <div class="selected">
+
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <p>里面的文字PPP</p>
+        <ul>
+            <li style="--i:0;">
+                <img src="./imgs/pkt.png" alt="">
+                <img src="./imgs/pkbm.png" alt="">
+            </li>
+            <li style="--i:0.5;">
+                <img src="./imgs/pkj.png" alt="">
+                <img src="./imgs/pkbm.png" alt="">
+            </li>
+            <li style="--i:1;">
+                <img src="./imgs/pkq.png" alt="">
+                <img src="./imgs/pkbm.png" alt="">
+            </li>
+            <li style="--i:1.5;">
+                <img src="./imgs/pkk.png" alt="">
+                <img src="./imgs/pkbm.png" alt="">
+            </li>
+            <li style="--i:2;">
+                <img src="./imgs/pka.png" alt="">
+                <img src="./imgs/pkbm.png" alt="">
+            </li>
+        </ul>
+    </div>
+
+    <!--2旋转导航栏 -->
+    <div class="rotate-nav">
+        <div class="i-box">
+            <i class="iconfont icon-close"></i>
+        </div>
+        <span style="--i:1;--col:rgb(245, 66, 66);">
+            <p>A</p>
+        </span>
+        <span style="--i:2;--col:rgb(250, 225, 81);">
+            <p>B</p>
+        </span>
+        <span style="--i:3;--col:rgb(108, 245, 81);">
+            <p>C</p>
+        </span>
+        <span style="--i:4;--col:rgb(47, 240, 182);">
+            <p>D</p>
+        </span>
+        <span style="--i:5;--col:rgb(64, 196, 248);">
+            <p>E</p>
+        </span>
+        <span style="--i:6;--col:rgb(73, 142, 247);">
+            <p>F</p>
+        </span>
+        <span style="--i:7;--col:rgb(170, 62, 241);">
+            <p>G</p>
+        </span>
+        <span style="--i:8;--col:rgb(247, 64, 231);">
+            <p>H</p>
+        </span>
+
+
+
+    </div>
+
+
+
+    <div class="img-box">
+        <img src="./xiaoxiantu1/imgs/carousel3.png" alt="">
+        <img src="./xiaoxiantu1/imgs/carousel4.png" alt="">
+    </div>
+
+    <div class="scroll-box w">
+        <div>
+            <img src="./xiaoxiantu1/imgs/carousel2.png" alt="">
+        </div>
+        <div>
+            <img src="./xiaoxiantu1/imgs/carousel3.png" alt="">
+        </div>
+        <div>
+            <img src="./xiaoxiantu1/imgs/carousel4.png" alt="">
+        </div>
+        
+    </div>
+
+
+    <script>
+        console.log('颜色分类:装饰画安装;组合形式:数量=1;尺寸:上墙尺寸101-200cm;外框类型:拍下必须勾选上门安装，如有疑问请咨询客服' == '颜色分类:装饰画安装;组合形式:数量=1;尺寸:上墙尺寸101-200cm;外框类型:拍下必须勾选上门安装，如有疑问请咨询客服')
+
+    </script>
 </body>
+
 </html>
